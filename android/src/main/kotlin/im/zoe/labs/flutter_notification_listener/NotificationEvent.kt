@@ -111,6 +111,7 @@ class NotificationEvent(context: Context, sbn: StatusBarNotification) {
             return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 when (v) {
                     is Icon -> {
+                        if(context == null) return null
                         convertIconToByteArray(context, v)
                     }
                     else -> internalMarshalled(context, v)
