@@ -42,7 +42,7 @@ class FlutterNotificationListenerPlugin : FlutterPlugin, MethodChannel.MethodCal
     val receiver = NotificationReceiver()
     val intentFilter = IntentFilter()
     intentFilter.addAction(NotificationsHandlerService.NOTIFICATION_INTENT)
-    mContext.registerReceiver(receiver, intentFilter)
+    mContext.registerReceiver(receiver, intentFilter, Context.RECEIVER_EXPORTED)
 
     Log.i(TAG, "attached engine finished")
   }
